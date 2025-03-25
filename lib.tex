@@ -5,6 +5,7 @@
 
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{cancel}
 \usepackage{geometry}
 \usepackage{interval}
 \usepackage{minibox}
@@ -21,6 +22,8 @@
 \intervalconfig{soft open fences}
 
 \miniboxsetup{frame, c}
+
+\usephysicsmodule{ab}
 
 \xpatchcmd{\tkzTabLine}{$0$}{${\color{white}\bullet}\mathllap{\circ}$}{}{}
 
