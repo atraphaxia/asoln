@@ -38,6 +38,15 @@
 	\pagebreak{}%
 }
 
+\makeatletter
+\NewDocumentCommand{\asolnnote}{mm}{%
+	\@bsphack
+	\MakeLinkTarget*{#1}%
+	\def\@currentlabel{#1}{\label{#2}}%
+	\@esphack
+}
+\makeatother
+
 \NewDocumentCommand{\asolnproblem}{mm}{%
 	#1
 	\begin{align*}
