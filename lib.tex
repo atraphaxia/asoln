@@ -1,2 +1,49 @@
 % SPDX-FileCopyrightText: Copyright (C) Nile Jocson <atraphaxia@gmail.com>
 % SPDX-License-Identifier: MPL-2.0
+
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{interval}
+\usepackage{minibox}
+\usepackage{physics2}
+\usepackage{tkz-tab}
+\usepackage{xcolor}
+\usepackage{xparse}
+\usepackage{xpatch}
+
+
+
+\geometry{a4paper, margin = 2cm}
+
+\intervalconfig{soft open fences}
+
+\miniboxsetup{frame, c}
+
+\xpatchcmd{\tkzTabLine}{$0$}{${\color{white}\bullet}\mathllap{\circ}$}{}{}
+
+
+
+\NewDocumentCommand{\asolnproblem}{mm}{%
+	#1
+	\begin{align*}
+		#2
+	\end{align*}
+	\pagebreak{}%
+}
+
+\NewDocumentCommand{\asolnsigns}{mm}{%
+	\end{align*}
+	\begin{center}
+	\begin{tikzpicture}
+	\tkzTabInit[lgt = #1, espcl = 2, deltacl = 0]
+	#2
+	\end{tikzpicture}
+	\begin{align*}%
+}
+
+\NewDocumentCommand{\asolnfinal}{m}{%
+	\intertext{\centering\minibox{#1}}%
+}
