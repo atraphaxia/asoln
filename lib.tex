@@ -40,10 +40,10 @@
 
 \makeatletter
 \NewDocumentCommand{\asolnnote}{mm}{%
-	\paragraph{#2} #1%
+	\paragraph{#1} #2%
 	\@bsphack
-	\MakeLinkTarget*{#1}%
-	\def\@currentlabel{#1}{\label{#2}}%
+	\MakeLinkTarget*{#2}%
+	\def\@currentlabel{#2}{\label{#1}}%
 	\@esphack
 }
 \makeatother
