@@ -6,7 +6,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{cancel}
-\usepackage{geometry}
+\usepackage[upright = true]{derivative}
+\usepackage[a4paper, margin = 2cm]{geometry}
 \usepackage{interval}
 \usepackage{minibox}
 \usepackage{physics2}
@@ -17,13 +18,13 @@
 
 
 
-\geometry{a4paper, margin = 2cm}
-
 \intervalconfig{soft open fences}
 
 \miniboxsetup{frame, c}
 
 \usephysicsmodule{ab}
+
+
 
 \xpatchcmd{\tkzTabLine}{$0$}{${\color{white}\bullet}\mathllap{\circ}$}{}{}
 
