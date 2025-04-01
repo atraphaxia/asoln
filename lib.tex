@@ -42,7 +42,7 @@
 
 
 
-\NewDocumentCommand{\asolnboilerplate}{mmmm}{%
+\NewDocumentCommand{\aboilerplate}{mmmm}{%
 	\title{#1\\{\large{}#2}}
 
 	\author{#3 \textless{}#4\textgreater{}}
@@ -54,13 +54,13 @@
 	\pagebreak{}%
 }
 
-\NewDocumentCommand{\asolnnote}{mmm}{%
+\NewDocumentCommand{\anote}{mmm}{%
 	\begin{note}
 		#1 \label{note:#2} #3
 	\end{note}
 }
 
-\NewDocumentCommand{\asolnproblem}{mm}{%
+\NewDocumentCommand{\aproblem}{mm}{%
 	#1
 	\begin{align*}
 		#2
@@ -68,7 +68,7 @@
 	\pagebreak{}%
 }
 
-\NewDocumentCommand{\asolnsigns}{mm}{%
+\NewDocumentCommand{\asigns}{mm}{%
 	\end{align*}
 	\begin{center}
 		\begin{tikzpicture}
@@ -79,10 +79,10 @@
 	\begin{align*}%
 }
 
-\NewDocumentCommand{\asolncomment}{m}{&
+\NewDocumentCommand{\acomment}{m}{&
 	\intertext{\minibox{#1}}%
 }
 
-\NewDocumentCommand{\asolnfinal}{m}{%
+\NewDocumentCommand{\afinal}{m}{%
 	\intertext{\centering\minibox[frame, c]{#1}}%
 }
