@@ -5,6 +5,7 @@
 
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{cancel}
 \usepackage[upright = true]{derivative}
 \usepackage[a4paper, margin = 2cm]{geometry}
@@ -16,11 +17,18 @@
 \usepackage{xparse}
 \usepackage{xpatch}
 
+\usepackage[noabbrev]{cleveref}
 
+
+
+\crefname{note}{note}{notes}
 
 \derivset{\odv}[style-frac = \dfrac]
 
 \intervalconfig{soft open fences}
+
+\theoremstyle{definition}
+\newtheorem{note}{Note}[subsection]
 
 \usephysicsmodule{ab}
 
@@ -46,15 +54,11 @@
 	\pagebreak{}%
 }
 
-\makeatletter
 \NewDocumentCommand{\asolnnote}{mmm}{%
-	#1: #3%
-	\@bsphack
-	\MakeLinkTarget*{#1}%
-	\def\@currentlabel{#1}{\label{#2}}%
-	\@esphack
+	\begin{note}
+		#1 \label{note:#2} #3
+	\end{note}
 }
-\makeatother
 
 \NewDocumentCommand{\asolnproblem}{mm}{%
 	#1
@@ -67,10 +71,11 @@
 \NewDocumentCommand{\asolnsigns}{mm}{%
 	\end{align*}
 	\begin{center}
-	\begin{tikzpicture}
-	\tkzTabInit[lgt = #1, espcl = 2, deltacl = 0]
-	#2
-	\end{tikzpicture}
+		\begin{tikzpicture}
+			\tkzTabInit[lgt = #1, espcl = 2, deltacl = 0]
+			#2
+		\end{tikzpicture}
+	\end{center}
 	\begin{align*}%
 }
 
