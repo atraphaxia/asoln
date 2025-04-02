@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{cancel}
+\usepackage{circuitikz}
 \usepackage[upright = true]{derivative}
 \usepackage[a4paper, margin = 2cm]{geometry}
 \usepackage{interval}
@@ -22,6 +23,8 @@
 
 
 \crefname{note}{note}{notes}
+
+\ctikzset{american}
 
 \derivset{\odv}[style-frac = \dfrac]
 
@@ -57,7 +60,7 @@
 \NewDocumentCommand{\anote}{mmm}{%
 	\begin{note}
 		#1 \label{note:#2} #3
-	\end{note}
+	\end{note}%
 }
 
 \NewDocumentCommand{\aproblem}{mm}{%
@@ -79,7 +82,17 @@
 	\begin{align*}%
 }
 
-\NewDocumentCommand{\acomment}{m}{&
+\NewDocumentCommand{\acircuit}{m}{%
+	\end{align*}
+	\begin{center}
+		\begin{circuitikz}
+			#1
+		\end{circuitikz}
+	\end{center}
+	\begin{align*}%
+}
+
+\NewDocumentCommand{\acomment}{m}{%
 	\intertext{\minibox{#1}}%
 }
 
