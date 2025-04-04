@@ -99,12 +99,12 @@
 
 \NewDocumentCommand{\afinal}{m}{%
 	\intertext{%
-		\fbox{%
-			\begin{center}
-				\begin{varwidth}[c]{\linewidth}
-					#1
-				\end{varwidth}
-			\end{center}
-		}
+		\begin{center}
+			\fbox{%
+					\begin{varwidth}[c]{\linewidth}
+						#1
+					\end{varwidth}%
+			}
+		\end{center}%
 	}%
 }
