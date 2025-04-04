@@ -55,6 +55,12 @@
 	\pagebreak{}%
 }
 
+\NewDocumentCommand{\anotegroup}{mm}{%
+	\subsection{#1}
+		#2
+	\pagebreak{}%
+}
+
 \NewDocumentCommand{\anote}{mmm}{%
 	\begin{note}
 		#1 \label{note:#2} #3
@@ -98,10 +104,6 @@
 			\end{circuitikz}
 		\end{adjustbox}
 	}%
-}
-
-\NewDocumentCommand{\acomment}{m}{%
-	\intertext{\minibox{#1}}%
 }
 
 \NewDocumentCommand{\afinal}{m}{%
