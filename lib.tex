@@ -48,12 +48,9 @@
 
 \NewDocumentCommand{\aboilerplate}{mmmmm}{%
 	\title{#1\\{\large{}From #2 --- #3}}
-
 	\author{#4 \textless{}#5\textgreater{}}
-
 	\maketitle{}
 	\pagebreak{}
-
 	\tableofcontents{}
 	\pagebreak{}%
 }
@@ -63,6 +60,16 @@
 		#1 \label{note:#2} #3
 	\end{note}%
 }
+
+\ExplSyntaxOn
+\NewDocumentCommand{\aref}{sm}{%
+	\IfBooleanTF{#1}{%
+		\Cref{note:\clist_use:nn{#2}{,note:}}%
+	}{%
+		\cref{note:\clist_use:nn{#2}{,note:}}%
+	}%
+}
+\ExplSyntaxOff
 
 \NewDocumentCommand{\aproblem}{mm}{%
 	#1
