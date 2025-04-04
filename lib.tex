@@ -3,15 +3,14 @@
 
 
 
+\usepackage{adjustbox}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
-\usepackage{cancel}
 \usepackage{circuitikz}
 \usepackage[upright = true]{derivative}
 \usepackage[a4paper, margin = 2cm]{geometry}
 \usepackage{interval}
-\usepackage{minibox}
 \usepackage{physics2}
 \usepackage{siunitx}
 \usepackage{tkz-tab}
@@ -72,25 +71,25 @@
 	\pagebreak{}%
 }
 
-\NewDocumentCommand{\asigns}{mm}{%
-	\end{align*}
-	\begin{center}
-		\begin{tikzpicture}
-			\tkzTabInit[lgt = #1, espcl = 2, deltacl = 0]
-			#2
-		\end{tikzpicture}
-	\end{center}
-	\begin{align*}%
+\NewDocumentCommand{\asigns}{mmm}{%
+	\intertext{
+		\begin{adjustbox}{center = #1\linewidth}
+			\begin{tikzpicture}
+				\tkzTabInit[lgt = #2, espcl = 2, deltacl = 0]
+				#3
+			\end{tikzpicture}
+		\end{adjustbox}
+	}%
 }
 
-\NewDocumentCommand{\acircuit}{m}{%
-	\end{align*}
-	\begin{center}
-		\begin{circuitikz}
-			#1
-		\end{circuitikz}
-	\end{center}
-	\begin{align*}%
+\NewDocumentCommand{\acircuit}{mm}{%
+	\intertext{
+		\begin{adjustbox}{center = #1\linewidth}
+			\begin{circuitikz}
+				#1
+			\end{circuitikz}
+		\end{adjustbox}
+	}%
 }
 
 \NewDocumentCommand{\acomment}{m}{%
@@ -98,5 +97,13 @@
 }
 
 \NewDocumentCommand{\afinal}{m}{%
-	\intertext{\centering\minibox[frame, c]{#1}}%
+	\intertext{
+		\fbox{
+			\begin{center}
+				\begin{minipage}[c]{\linewidth}
+					#1
+				\end{minipage}
+			\end{center}
+		}
+	}%
 }
