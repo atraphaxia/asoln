@@ -88,34 +88,20 @@
 }
 
 \NewDocumentCommand{\asigns}{mmm}{%
-	\intertext{%
-		\begin{adjustbox}{center = #1\linewidth}
-			\begin{tikzpicture}
-				\tkzTabInit[lgt = #2, espcl = 2, deltacl = 0]
-				#3
-			\end{tikzpicture}
-		\end{adjustbox}
-	}%
+	\intertext{\centering\begin{adjustbox}{width = #1\linewidth}\begin{tikzpicture}
+		\tkzTabInit[lgt = #2, espcl = 2, deltacl = 0]
+			#3
+	\end{tikzpicture}\end{adjustbox}}%
 }
 
 \NewDocumentCommand{\acircuit}{mm}{%
-	\intertext{%
-		\begin{adjustbox}{center = #1\linewidth}
-			\begin{circuitikz}
-				#1
-			\end{circuitikz}
-		\end{adjustbox}
-	}%
+	\intertext{\centering\begin{adjustbox}{width = #1\linewidth}\begin{circuitikz}
+				#2
+	\end{circuitikz}\end{adjustbox}}%
 }
 
 \NewDocumentCommand{\afinal}{m}{%
-	\intertext{%
-		\begin{center}
-			\fbox{%
-					\begin{varwidth}[c]{\linewidth}
+	\intertext{\centering\fbox{\begin{varwidth}[c]{\linewidth}
 						#1
-					\end{varwidth}%
-			}
-		\end{center}%
-	}%
+	\end{varwidth}}}%
 }
