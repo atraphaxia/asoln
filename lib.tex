@@ -88,14 +88,14 @@
 }
 
 \NewDocumentCommand{\asigns}{mmm}{%
-	\intertext{\centering\begin{adjustbox}{width = #1\linewidth}\begin{tikzpicture}
-		\tkzTabInit[lgt = #2, espcl = 2, deltacl = 0]
+	\intertext{\centering\begin{adjustbox}{max width = #1\linewidth}\begin{tikzpicture}
+		\tkzTabInit[lgt = #2, espcl = 1, deltacl = 0]
 		#3
 	\end{tikzpicture}\end{adjustbox}}%
 }
 
 \NewDocumentCommand{\acircuit}{mm}{%
-	\intertext{\centering\begin{adjustbox}{width = #1\linewidth}\begin{circuitikz}
+	\intertext{\centering\begin{adjustbox}{max width = #1\linewidth}\begin{circuitikz}
 		#2
 	\end{circuitikz}\end{adjustbox}}%
 }
