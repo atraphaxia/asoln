@@ -20,6 +20,8 @@
 \usepackage{xparse}
 \usepackage{xpatch}
 
+\usepackage{pst-eucl}
+
 \usepackage{hyperref}
 \usepackage[noabbrev]{cleveref}
 
@@ -114,8 +116,15 @@
 	\end{circuitikz}\end{adjustbox}\end{center}}%
 }
 
+\NewDocumentCommand{\aplot}{mmmmmmmm}{%
+	\intertext{\begin{center}\begin{adjustbox}{max width = #1\linewidth}\begin{pspicture}(#2, #3)(#4, #5)
+		\psaxes[showorigin = false]{<->}(0, 0)(#2, #3)(#4, #5)[#6, 0][#7, 0]
+		#8
+	\end{pspicture}\end{adjustbox}\end{center}}%
+}
+
 \NewDocumentCommand{\afinal}{m}{%
-	\intertext{\centering\fbox{\begin{varwidth}[c]{\linewidth}
+	\intertext{\begin{center}\fbox{\begin{varwidth}[c]{\linewidth}
 		#1
-	\end{varwidth}}}%
+	\end{varwidth}}\end{center}}%
 }
