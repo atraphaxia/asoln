@@ -92,37 +92,63 @@
 	\pagebreak{}%
 }
 
-\NewDocumentCommand{\acases}{m}{%
-	\intertext{\[\begin{cases}
+
+
+\NewDocumentCommand{\ascases}{m}{%
+	\[\begin{cases}
 		#1
-	\end{cases}\]}
+	\end{cases}\]
+}
+
+\NewDocumentCommand{\asdraw}{mm}{%
+	\begin{center}\begin{adjustbox}{max width = #1\linewidth}\begin{tikzpicture}
+		#2
+	\end{tikzpicture}\end{adjustbox}\end{center}%
+}
+
+\NewDocumentCommand{\assigns}{mmm}{%
+	\begin{center}\begin{adjustbox}{max width = #1\linewidth}\begin{tikzpicture}
+		\tkzTabInit[lgt = #2, espcl = 1, deltacl = 0, nocadre]
+		#3
+	\end{tikzpicture}\end{adjustbox}\end{center}%
+}
+
+\NewDocumentCommand{\ascircuit}{mm}{%
+	\begin{center}\begin{adjustbox}{max width = #1\linewidth}\begin{circuitikz}
+		#2
+	\end{circuitikz}\end{adjustbox}\end{center}%
+}
+
+\NewDocumentCommand{\asplot}{mmmmmmmm}{%
+	\begin{center}\begin{adjustbox}{max width = #1\linewidth}\begin{pspicture*}(#2, #3)(#4, #5)
+		\psaxes[showorigin = false]{<->}(0, 0)(#2, #3)(#4, #5)[#6, 0][#7, 90]
+		#8
+	\end{pspicture*}\end{adjustbox}\end{center}%
+}
+
+
+
+\NewDocumentCommand{\acases}{m}{%
+	\intertext{\ascases{#1}}%
 }
 
 \NewDocumentCommand{\adraw}{mm}{%
-	\intertext{\begin{center}\begin{adjustbox}{max width = #1\linewidth}\begin{tikzpicture}
-		#2
-	\end{tikzpicture}\end{adjustbox}\end{center}}%
+	\intertext{\asdraw{#1}{#2}}%
 }
 
 \NewDocumentCommand{\asigns}{mmm}{%
-	\intertext{\begin{center}\begin{adjustbox}{max width = #1\linewidth}\begin{tikzpicture}
-		\tkzTabInit[lgt = #2, espcl = 1, deltacl = 0, nocadre]
-		#3
-	\end{tikzpicture}\end{adjustbox}\end{center}}%
+	\intertext{\assigns{#1}{#2}{#3}}%
 }
 
 \NewDocumentCommand{\acircuit}{mm}{%
-	\intertext{\begin{center}\begin{adjustbox}{max width = #1\linewidth}\begin{circuitikz}
-		#2
-	\end{circuitikz}\end{adjustbox}\end{center}}%
+	\intertext{\ascircuit{#1}{#2}}%
 }
 
 \NewDocumentCommand{\aplot}{mmmmmmmm}{%
-	\intertext{\begin{center}\begin{adjustbox}{max width = #1\linewidth}\begin{pspicture*}(#2, #3)(#4, #5)
-		\psaxes[showorigin = false]{<->}(0, 0)(#2, #3)(#4, #5)[#6, 0][#7, 90]
-		#8
-	\end{pspicture*}\end{adjustbox}\end{center}}%
+	\intertext{\asplot{#1}{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
 }
+
+
 
 \NewDocumentCommand{\afinal}{m}{%
 	\intertext{\begin{center}\fbox{\begin{varwidth}[c]{\linewidth}
