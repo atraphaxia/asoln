@@ -92,12 +92,16 @@
 	\pagebreak{}%
 }
 
+\NewDocumentCommand{\asecases}{O{}m}{%
+	#1\begin{cases}
+		#2
+	\end{cases}%
+}
 
 
-\NewDocumentCommand{\ascases}{m}{%
-	\[\begin{cases}
-		#1
-	\end{cases}\]%
+
+\NewDocumentCommand{\ascases}{O{}m}{%
+	\[\asecases[#1]{#2}\]%
 }
 
 \NewDocumentCommand{\asdraw}{mm}{%
@@ -134,8 +138,8 @@
 
 
 
-\NewDocumentCommand{\acases}{m}{%
-	\intertext{\ascases{#1}}%
+\NewDocumentCommand{\acases}{O{}m}{%
+	\intertext{\ascases[#1]{#2}}%
 }
 
 \NewDocumentCommand{\adraw}{mm}{%
