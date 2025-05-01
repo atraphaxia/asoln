@@ -104,26 +104,26 @@
 	\[\asecases[#1]{#2}\]%
 }
 
-\NewDocumentCommand{\asdraw}{mm}{%
+\NewDocumentCommand{\asdraw}{O{1}m}{%
 	\begin{center}\begin{adjustbox}{max width = #1\linewidth}\begin{tikzpicture}
 		#2
 	\end{tikzpicture}\end{adjustbox}\end{center}%
 }
 
-\NewDocumentCommand{\assigns}{mmm}{%
+\NewDocumentCommand{\assigns}{O{1}mm}{%
 	\begin{center}\begin{adjustbox}{max width = #1\linewidth}\begin{tikzpicture}
 		\tkzTabInit[lgt = #2, espcl = 1, deltacl = 0, nocadre]
 		#3
 	\end{tikzpicture}\end{adjustbox}\end{center}%
 }
 
-\NewDocumentCommand{\ascircuit}{mm}{%
+\NewDocumentCommand{\ascircuit}{O{1}m}{%
 	\begin{center}\begin{adjustbox}{max width = #1\linewidth}\begin{circuitikz}
 		#2
 	\end{circuitikz}\end{adjustbox}\end{center}%
 }
 
-\NewDocumentCommand{\asplot}{mmmmmmmm}{%
+\NewDocumentCommand{\asplot}{O{1}mmmmmmm}{%
 	\begin{center}\begin{adjustbox}{max width = #1\linewidth}\begin{pspicture*}(#2, #3)(\fpeval{#4 + 0.4}, \fpeval{#5 + 0.4})
 		\psaxes[showorigin = false]{<->}(0, 0)(#2, #3)(#4, #5)[#6, 0][#7, 90]
 		#8
@@ -142,20 +142,20 @@
 	\intertext{\ascases[#1]{#2}}%
 }
 
-\NewDocumentCommand{\adraw}{mm}{%
-	\intertext{\asdraw{#1}{#2}}%
+\NewDocumentCommand{\adraw}{O{1}m}{%
+	\intertext{\asdraw[#1]{#2}}%
 }
 
-\NewDocumentCommand{\asigns}{mmm}{%
-	\intertext{\assigns{#1}{#2}{#3}}%
+\NewDocumentCommand{\asigns}{O{1}mm}{%
+	\intertext{\assigns[#1]{#2}{#3}}%
 }
 
-\NewDocumentCommand{\acircuit}{mm}{%
-	\intertext{\ascircuit{#1}{#2}}%
+\NewDocumentCommand{\acircuit}{O{1}m}{%
+	\intertext{\ascircuit[#1]{#2}}%
 }
 
-\NewDocumentCommand{\aplot}{mmmmmmmm}{%
-	\intertext{\asplot{#1}{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
+\NewDocumentCommand{\aplot}{O{1}mmmmmmm}{%
+	\intertext{\asplot[#1]{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
 }
 
 \NewDocumentCommand{\afinal}{m}{%
