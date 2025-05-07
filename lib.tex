@@ -44,6 +44,8 @@
 
 \usephysicsmodule{ab}
 
+\UseTblrLibrary{amsmath}
+
 
 
 \everymath{\displaystyle}
@@ -102,9 +104,9 @@
 }
 
 \NewDocumentCommand{\asecases}{O{}m}{%
-	#1\begin{cases}
+	#1\begin{+cases}
 		#2
-	\end{cases}%
+	\end{+cases}%
 }
 
 
